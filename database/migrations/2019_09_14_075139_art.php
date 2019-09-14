@@ -13,8 +13,13 @@ class Art extends Migration
      */
     public function up()
     {
-        Schema::table('arts', function (Blueprint $table) {
+        Schema::create('arts', function (Blueprint $table) {
             //
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->longText('body');
+            $table->string('user');
+            $table->timestamps();
         });
     }
 
@@ -27,11 +32,8 @@ class Art extends Migration
     {
         Schema::table('arts', function (Blueprint $table) {
             //
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('body');
-            $table->string('user');
-            $table->timestamps();
+            Schema::dropIfExists('arts');
+           
         });
     }
 }

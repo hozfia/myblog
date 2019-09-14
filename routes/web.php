@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/create', 'artcontrol@create');
+Route::get('/show', 'artcontrol@showw');
+Route::post('/create', 'artcontrol@store');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
