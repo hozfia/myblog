@@ -8,11 +8,10 @@
 <div class = 'container'>
 <div id="scrolling-container">
   
-  @foreach($art as $ar)
+  
   <div id="quill-container">
-  {!!$ar->body!!}
+  <!-- {!!$art->body!!} -->
   </div>
-  @endforeach
   
 </div>
 </div>
@@ -30,5 +29,6 @@
 //   theme: 'bubble'
 }}) ;
 quill.enable(false); 
+quill.setContents({!!$art->body!!});
 </script>
 @endsection

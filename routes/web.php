@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/create', 'artcontrol@create');
-Route::get('/show', 'artcontrol@showw');
+Route::get('/show/{id}', 'artcontrol@show');
 Route::post('/create', 'artcontrol@store');
 
 

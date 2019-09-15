@@ -27,6 +27,7 @@ $(document).ready(function(){
 var quill = new Quill('#editor-container', {
   modules: {
     toolbar: [
+      [{ header: [1, 2, false] }] , 
       ['bold', 'italic'],
       ['link', 'blockquote', 'code-block', 'image'],
       [{ list: 'ordered' }, { list: 'bullet' }]
@@ -40,8 +41,12 @@ var form = document.querySelector('form');
 form.onsubmit = function() {
   // Populate hidden form on submit
   var about = document.querySelector("input[name=body]");
-  about.value = JSON.stringify(quill.root.innerHTML.trim());
+  about.value = JSON.stringify(quill.getContents() );
   
+  //to html : quill.root.innerHTML.trim() 
+  
+  //to json style content : quill.getContents() 
+
   //console.log("Submitted", $(form).serialize(), $(form).serializeArray());
   
   // No back end to actually submit to!

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\artmodel ; 
+use App\arttow ; 
+use Illuminate\Support\Facades\DB;
 
 class artcontrol extends Controller
 {
@@ -37,7 +38,7 @@ class artcontrol extends Controller
     public function store(Request $request)
     {
         //
-        $art = new artmodel() ;
+        $art = new arttow() ;
         $art->title = $request->get('title') ; 
         $art->body = $request->get('body') ; 
         $art->user = 'admin' ;  
@@ -54,14 +55,14 @@ class artcontrol extends Controller
      */
     public function show($id)
     {
-        //
-        return view('show_art') ; 
+        $art = DB::table('arts')->where('id',$id)->first();
+        return view('show_art' , compact('art')) ; 
     }
 
     public function showw()
     {
         //
-        $art = artmodel::all() ; 
+        $art = DB::table('arts')->where('id',3)->first();
         return view('show_art' , compact('art')) ; 
     }
 
