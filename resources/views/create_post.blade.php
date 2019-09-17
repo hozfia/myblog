@@ -2,7 +2,7 @@
 @section('content') 
 
 <div class = 'container'>
-<form action="{{url('/create')}}" method = 'post'>
+<form action="{{url('/create')}}" method = 'post' enctype="multipart/form-data" >
 @csrf
 <input type="text" name = 'title' >
 <div>
@@ -58,8 +58,20 @@ form.onsubmit = function() {
 
 </script>
 </div>
+<div class="row">
+
+  
+
+<div class="col-md-3">
+
+    <input type="file" name="image" class="form-control">
+
+</div>
+</div>
+
 <input name="body" type="hidden">
 <button class="btn btn-primary" type="submit">Save Post</button>
+
 </form>
 </div>
 @endsection

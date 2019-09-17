@@ -40,6 +40,10 @@ class artcontrol extends Controller
     public function store(Request $request)
     {
         //
+          
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $imageName);
         $art = new arttow() ;
         $art->title = $request->get('title') ; 
         $art->body = $request->get('body') ; 
