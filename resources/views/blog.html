@@ -1,6 +1,12 @@
-@extends('layouts.app')
-@section('head')
-<style type="text/css">
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style type="text/css">
             #page {
                 position: fixed;
                 bottom: 0;
@@ -14,22 +20,6 @@
                 margin-right: auto;
                 margin-bottom: 40px;
             }
-            .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    margin-bottom: 30px;
-    margin-top: 15px;
-}
-.py-4 {
-    padding-top:0px !important;
-}
             
             body {
                 overflow-x: hidden;
@@ -103,14 +93,13 @@
                 margin-right: 30%
             }
         </style>
-@endsection('head')
-@section('content')
-<div class = "container">
+        <title>
+            Hello, Bootsrap
+        </title>
+    </head>
 
-
-</div>
-<!-- ------------------------------------------------ -->
-<!-- <nav aria-label="..." id="page">
+    <body>
+        <nav aria-label="..." id="page">
             <ul class="pagination">
                 <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -124,10 +113,11 @@
                     <a class="page-link" href="#">Next</a>
                 </li>
             </ul>
-        </nav> -->
-<div class="d-flex" id="wrapper">
+        </nav>
+
+
+        <div class="d-flex" id="wrapper">
             <!--idebar -->
-            
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">Start Bootstrap </div>
                 <div class="list-group list-group-flush">
@@ -142,18 +132,23 @@
 
             <div class="container-fluid" id="fluid">
 
-              
-            @foreach($artecls as $art)
-            
-            <div class="card w-50" id="card">
+                <div class="card w-50" id="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{$art->title}}</h5>
+                        <h5 class="card-title">Card title</h5>
                         <img class="card-image" />
-                        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                        <a href= /show/{{$art->id}}  class="btn btn-primary">See More</a>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Button</a>
                     </div>
                 </div>
-            @endforeach 
+
+                <div class="card w-50" id="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <img class="card-image" />
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
 
             </div>
 
@@ -169,6 +164,4 @@
         });
     </script>
 
-<!-- --------------------------------------------------->
-{{ $artecls->links() }}
-@endsection('content') 
+</html>

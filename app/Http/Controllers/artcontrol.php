@@ -16,7 +16,7 @@ class artcontrol extends Controller
     public function index()
     {
         //
-        $artecls = DB::table('arts')->Paginate(3); 
+        $artecls = DB::table('arts')->Paginate(4); 
         return view('index' , compact('artecls')) ; 
     }
 
