@@ -70,7 +70,8 @@ class artcontrol extends Controller
      */
     public function show($id)
     {
-        $art = DB::table('arts')->where('id',$id)->first();
+        // $art = DB::table('arts')->where('id',$id)->first();
+        $art = arttow::find($id) ;
         return view('show_art' , compact('art')) ; 
     }
 
