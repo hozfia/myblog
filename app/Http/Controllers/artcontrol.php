@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\arttow ; 
+use App\image ; 
 use Illuminate\Support\Facades\DB;
 
 class artcontrol extends Controller
@@ -16,7 +17,9 @@ class artcontrol extends Controller
     public function index()
     {
         //
-        $artecls = DB::table('arts')->Paginate(4); 
+        // $users = arttow::paginate(2);
+        // $artecls = DB::table('arts')->Paginate(2); 
+        $artecls = arttow::paginate(2) ; 
         return view('index' , compact('artecls')) ; 
     }
 
@@ -44,11 +47,17 @@ class artcontrol extends Controller
 
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
         $request->image->move(public_path('images'), $imageName);
+        $img = new image() ; 
+        $img->imagename = $imageName ; 
         $art = new arttow() ;
         $art->title = $request->get('title') ; 
         $art->body = $request->get('body') ; 
         $art->user = 'admin' ;  
         $art->save() ; 
+        $img = new image() ; 
+        $img->imagename = $imageName ; 
+        $img->post_id   = $art->id ; 
+        $img->save() ; 
         return redirect('home') ; 
 
     }

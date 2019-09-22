@@ -1,0 +1,2 @@
+                <a href= /show/{{$art->id}} class="btn btn-primary">See More ... </a>
+                <h5 class="card-title">{{$art->title}}</h5>

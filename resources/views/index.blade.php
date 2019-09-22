@@ -147,6 +147,7 @@
             
             <div class="card w-50" id="card">
                     <div class="card-body">
+                    <img src="/images/{{$art->pic_name->imagename }}" class="card-img-top" alt="...">
                         <h5 class="card-title">{{$art->title}}</h5>
                         <img class="card-image" />
                         <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
